@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import '../addnote/addNote.css'
 
 class AddNote extends Component {
+
   state = {
     notes: ''
   }
@@ -12,7 +13,12 @@ class AddNote extends Component {
   }
   handleSubmit = (e) => {
     e.preventDefault();
-    console.log(this.state);
+    // this.props.AddNote(this.state);
+    this.setState({
+      notes: [
+        { title: e.target.value }
+      ]
+    })
   }
   render() {
     return (
@@ -29,6 +35,7 @@ class AddNote extends Component {
                 <input type="text" onChange={this.handleChange} /> <br />
                 <label htmlFor="nots">Note content</label>
                 <textarea name="" id="" cols="30" rows="10"></textarea>
+                <button className="btn">Save</button>
               </form>
             </div>
           </div>
